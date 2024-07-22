@@ -78,7 +78,7 @@ WSGI_APPLICATION = "gymalytics.wsgi.application"
 
 DATABASES = {
     
-    'default': {
+    'mysql': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gymalyticsdb',
         'USER': 'ldepla', #TODO add dotenv reference here
@@ -86,14 +86,11 @@ DATABASES = {
         'HOST': '172.30.128.1',  # Set to your database host
         'PORT': '3306',       # Set to your database port
     },
-    "sqlite": {
+    "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
