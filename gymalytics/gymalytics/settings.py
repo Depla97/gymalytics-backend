@@ -31,12 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "gymsessionsapp.apps.GymsessionsappConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework', # swagger compatibility
+    'drf_yasg' #  swagger compatibility
 ]
 
 MIDDLEWARE = [
@@ -80,7 +83,7 @@ DATABASES = {
         'NAME': 'gymalyticsdb',
         'USER': 'ldepla', #TODO add dotenv reference here
         'PASSWORD': 'dbpassword', #TODO add dotenv reference here
-        'HOST': 'localhost',  # Set to your database host
+        'HOST': '172.30.128.1',  # Set to your database host
         'PORT': '3306',       # Set to your database port
     },
     "sqlite": {
@@ -116,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Rome"
 
 USE_I18N = True
 
@@ -132,3 +135,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# SWAGGER CONFIG
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        }
+    }
+}
